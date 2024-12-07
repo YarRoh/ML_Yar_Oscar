@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз здоровья</title>
+    <!-- Подключение Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Прогноз здоровья</h1>
+        <form action="/predict" method="post" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="age" class="form-label">Возраст:</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Введите возраст (20-80)" required>
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Пол:</label>
+                <select class="form-select" id="gender" name="gender" required>
+                    <option value="0">Женщина</option>
+                    <option value="1">Мужчина</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="bmi" class="form-label">Индекс массы тела (BMI):</label>
+                <input type="number" class="form-control" id="bmi" name="bmi" placeholder="Введите BMI (18.5-40)" step="0.1" required>
+            </div>
+            <div class="mb-3">
+                <label for="cholesterol" class="form-label">Уровень холестерина:</label>
+                <input type="number" class="form-control" id="cholesterol" name="cholesterol" placeholder="Введите уровень холестерина (150-300)" required>
+            </div>
+            <div class="mb-3">
+                <label for="bp_sys" class="form-label">Верхнее давление:</label>
+                <input type="number" class="form-control" id="bp_sys" name="bp_sys" placeholder="Введите систолическое давление (110-180)" required>
+            </div>
+            <div class="mb-3">
+                <label for="bp_dia" class="form-label">Нижнее давление:</label>
+                <input type="number" class="form-control" id="bp_dia" name="bp_dia" placeholder="Введите диастолическое давление (70-100)" required>
+            </div>
+            <div class="mb-3">
+                <label for="p_wave" class="form-label">Зубец P:</label>
+                <input type="number" class="form-control" id="p_wave" name="p_wave" placeholder="Введите значение 0.1" step="0.01" min="0.1" max="0.1" required>
+            </div>
+            <div class="mb-3">
+                <label for="heart_rate" class="form-label">Частота сердечных сокращений:</label>
+                <input type="number" class="form-control" id="heart_rate" name="heart_rate" placeholder="Введите ЧСС (60-120)" required>
+            </div>
+            <div class="mb-3">
+                <label for="qrs_duration" class="form-label">Продолжительность комплекса QRS:</label>
+                <input type="number" class="form-control" id="qrs_duration" name="qrs_duration" placeholder="Введите QRS (0.06-0.12)" step="0.01" required>
+            </div>
+            <div class="mb-3">
+                <label for="qt_interval" class="form-label">Интервал QT:</label>
+                <input type="number" class="form-control" id="qt_interval" name="qt_interval" placeholder="Введите QT (0.35-0.5)" step="0.01" required>
+            </div>
+            <div class="mb-3">
+                <label for="rr_interval" class="form-label">Интервал RR:</label>
+                <input type="number" class="form-control" id="rr_interval" name="rr_interval" placeholder="Введите значение 0.6" step="0.01" min="0.6" max="0.6" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Прогнозировать</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

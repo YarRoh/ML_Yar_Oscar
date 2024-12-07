@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    container_name: cardiovascular_diseases_web
+    networks:
+      - cardiovascular_diseases
+
+  nginx-proxy:
+    image: nginx
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - web
+    container_name: cardiovascular_diseases_nginx_proxy
+    networks:
+      - cardiovascular_diseases
+
+networks:
+  cardiovascular_diseases:
+    driver: bridge
